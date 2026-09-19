@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gacha Story</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="vars.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="decorations.css">
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero_bg_wrap">
+            <div class="hero_bg"></div>
+        </div>
+
+        <img class="hero_deco hero_flower hero_flower_1" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_flower hero_flower_2" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_flower hero_flower_3" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_flower hero_flower_4" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_flower hero_flower_5" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_flower hero_flower_6" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+
+        <img class="hero_deco hero_star hero_star_1" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_2" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_3" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_4" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_5" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_6" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_7" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        <img class="hero_deco hero_star hero_star_8" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+
+        <div class="hero_panel">
+            <img class="hero_logo bup" src="assets/Logos/Logo.png" alt="Gacha Story">
+            <p class="hero_subtitle">Gacha Life Romance Visual Novel</p>
+            <div class="hero_actions">
+                <button class="btn btn_yellow"
+                    onclick="document.getElementById('download_section').scrollIntoView({ behavior: 'smooth' })">Play
+                    Now</button>
+                <button class="btn btn_green"
+                    onclick="document.getElementById('story_about_con').scrollIntoView({ behavior: 'smooth' })">Discover
+                    the Story</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+        <span class="divider_line"></span>
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+    </div>
+
+    <section class="story">
+        <div class="story_char_con">
+            <div class="story_ava_con">
+                <img src="assets/Images/AvaArtworkPNG.png" alt="Ava" class="story_ava_img">
+            </div>
+            <div class="story_about_con" id="story_about_con">
+                <div class="story_about_text_con">
+                    <span class="story_about_title">Ava</span>
+                    <br><br>
+                    <span class="story_about_text">You will play as Ava, a shy and creative 15-year-old girl.<br><br>One
+                        day
+                        she befriends a boy, Michael, and from then on, new friendships, romances, and poisonings turn
+                        her life upside down.</span>
+                </div>
+                <button class="btn btn_yellow"
+                    onclick="document.getElementById('download_section').scrollIntoView({ behavior: 'smooth' })">Play
+                    Now</button>
+            </div>
+
+            <img class="story_deco story_star story_star_1" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="story_deco story_star story_star_2" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="story_deco story_star story_star_3" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="story_deco story_star story_star_4" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="story_deco story_star story_star_5" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+
+            <img class="story_deco story_flower story_flower_1" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="story_deco story_flower story_flower_2" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        </div>
+
+        <div class="story_branch_con">
+            <div class="story_branch_titles_con">
+                <span class="story_branch_title">Every choice matters</span>
+                <br>
+                <span class="story_branch_text">Gacha Story doesn't follow a single path: what you say and when you say
+                    it <strong>changes</strong> the course of the story.</span>
+            </div>
+
+            <div class="story_branch_cards_con">
+                <div class="story_branch_card story_branch_card_orange">
+                    <div class="story_branch_card_icon story_branch_card_icon_yellow">
+                        <img src="assets/Icons/Icon_Dialogue.png" alt="" class="story_branch_card_icon_img">
+                    </div>
+                    <span class="story_branch_card_title">Dialogue choices</span>
+                </div>
+                <div class="story_branch_card story_branch_card_green">
+                    <div class="story_branch_card_icon story_branch_card_icon_blue">
+                        <img src="assets/Icons/Icon_Paths.png" alt="" class="story_branch_card_icon_img">
+                    </div>
+                    <span class="story_branch_card_title">Different paths</span>
+                </div>
+                <div class="story_branch_card story_branch_card_pink">
+                    <div class="story_branch_card_icon story_branch_card_icon_purple">
+                        <img src="assets/Icons/Icon_Heart.png" alt="" class="story_branch_card_icon_img">
+                    </div>
+                    <span class="story_branch_card_title">Multiple endings</span>
+
+                    <img class="story_deco story_branch_flower story_branch_flower_1" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+                    <img class="story_deco story_branch_flower story_branch_flower_2" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+                </div>
+            </div>
+
+            <div class="story_branch_titles_con">
+                <span class="story_branch_text_2">Play through multiple times to discover all the endings and the bonds
+                    you can build with Ava.</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+        <span class="divider_line"></span>
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+    </div>
+
+    <section class="hero">
+        <div class="bracelets_bg_wrap">
+            <div class="bracelets_bg"></div>
+        </div>
+
+        <img class="bracelets_logo bup" src="assets/Logos/Bracelets_Logo.png" alt="Bracelets Craft">
+
+        <div class="bracelets_frame">
+            <img class="bracelets_deco bracelets_chain bracelets_chain_top" src="assets/Icons/Icon_Bracelets_D.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_chain bracelets_chain_bottom" src="assets/Icons/Icon_Bracelets_A.png" alt="" aria-hidden="true">
+
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_1" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_2" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_3" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_4" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_5" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_6" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_7" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+            <img class="bracelets_deco bracelets_sparkle bracelets_sparkle_8" src="assets/Icons/Icon_White_Sparkle.png" alt="" aria-hidden="true">
+
+            <div class="bracelets_panel">
+                <div class="bracelets_text_con">
+                    <span class="bracelets_title">Bracelet Studio</span>
+                    <span class="bracelets_text">In the <strong>Bracelet Studio</strong>, you can mix and match charms and
+                        colors to
+                        <strong>create unique bracelets</strong> to gift to the story's characters, or simply to pass the
+                        time, just like
+                        Ava would.</span>
+                </div>
+                <div class="bracelets_grid_con">
+                    <div class="bracelets_swatch">
+                        <img src="assets/Icons/Icon_Bracelets_B.png" alt="" class="bracelets_swatch_img">
+                    </div>
+                    <div class="bracelets_swatch">
+                        <img src="assets/Icons/Icon_Bracelets_E.png" alt="" class="bracelets_swatch_img">
+                    </div>
+                    <div class="bracelets_swatch">
+                        <img src="assets/Icons/Icon_Bracelets_C.png" alt="" class="bracelets_swatch_img">
+                    </div>
+                    <div class="bracelets_swatch">
+                        <img src="assets/Icons/Icon_Bracelets_F.png" alt="" class="bracelets_swatch_img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="divider">
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+        <span class="divider_line"></span>
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+    </div>
+
+    <section class="download">
+        <div class="download_frame">
+            <div class="download_titles_con" id="download_section">
+                <span class="download_title">Download Gacha Story</span>
+                <span class="download_text">Available for free. Choose your platform.</span>
+            </div>
+
+            <div class="download_buttons_con">
+                <a href="#" target="_blank" class="download_btn download_btn_green">
+                    <span class="download_btn_icon download_btn_icon_playstore"></span>
+                    <span class="download_btn_label">Play Store</span>
+                </a>
+                <a href="#" target="_blank" class="download_btn download_btn_orange">
+                    <span class="download_btn_icon download_btn_icon_appstore"></span>
+                    <span class="download_btn_label">App Store</span>
+                </a>
+                <a href="https://abcia2.itch.io/ligl" target="_blank" class="download_btn download_btn_red">
+                    <span class="download_btn_icon download_btn_icon_itchio"></span>
+                    <span class="download_btn_label">Itch.io</span>
+                </a>
+                <a href="https://gd.games/abcia2/life-in-gacha-life" target="_blank"
+                    class="download_btn download_btn_purple">
+                    <span class="download_btn_icon download_btn_icon_gdevelop"></span>
+                    <span class="download_btn_label">Play Online</span>
+                </a>
+            </div>
+
+            <img class="download_deco download_star download_star_1" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="download_deco download_star download_star_2" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="download_deco download_star download_star_3" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+
+            <img class="download_deco download_flower download_flower_1" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="download_deco download_flower download_flower_2" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="download_deco download_flower download_flower_3" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="download_deco download_flower download_flower_4" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+        </div>
+    </section>
+
+    <div class="divider">
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+        <span class="divider_line"></span>
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+    </div>
+
+    <section class="about">
+        <div class="about_panel">
+            <img class="about_sparkle about_sparkle_1" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+            <img class="about_sparkle about_sparkle_2" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+            <img class="about_sparkle about_sparkle_3" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+            <img class="about_sparkle about_sparkle_4" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+            <img class="about_sparkle about_sparkle_5" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+            <img class="about_sparkle about_sparkle_6" src="assets/Decorations/AbiSparkle.png" alt="" aria-hidden="true">
+
+            <div class="about_avatar_spacer">
+                <img class="about_avatar" src="assets/Images/Abcia2_Avatar.png" alt="Abcia2">
+            </div>
+
+            <div class="about_content_con">
+                <span class="about_title">A Game By Abcia2</span>
+
+                <div class="about_text_con">
+                    <span class="about_text">Hi I'm Abcia2, the creator of Gacha Story</span>
+                    <span class="about_text">I'm a indie game developer and gachatuber</span>
+                    <span class="about_text">Hope you'll enjoy ♥</span>
+                </div>
+
+                <div class="about_bottom_con">
+                    <div class="about_socials_con">
+                        <a href="https://www.tiktok.com/@abcia_2" target="_blank" class="about_social_link bup"><img
+                                src="assets/Icons/tt.png" target="_blank" alt="TikTok" class="about_social_icon"></a>
+                        <a href="https://ko-fi.com/abcia2" target="_blank" class="about_social_link bup"><img
+                                src="assets/Icons/kf.png" alt="Ko-fi" class="about_social_icon"></a>
+                        <a href="https://instagram.com/abcia_2" target="_blank" class="about_social_link bup"><img
+                                src="assets/Icons/ig.png" alt="Instagram" class="about_social_icon"></a>
+                        <a href="https://www.youtube.com/@Abcia2" target="_blank" class="about_social_link bup"><img
+                                src="assets/Icons/yt.png" alt="YouTube" class="about_social_icon"></a>
+                    </div>
+                    <a href="https://abcia2.com/" target="_blank" class="btn btn_about">About Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider">
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+        <span class="divider_line"></span>
+        <svg class="divider_sparkle" aria-hidden="true">
+            <use href="assets/sprite.svg#icon-sparkle"></use>
+        </svg>
+    </div>
+
+    <section class="news">
+        <div class="news_bg_wrap">
+            <div class="news_bg"></div>
+        </div>
+
+        <span class="news_title">News &amp; More</span>
+
+        <div class="notice_panel">
+            <div class="notice_text_con">
+                <span class="notice_title" id="notice_title">Loading...</span>
+                <div class="notice_body_scroll">
+                    <span class="notice_body" id="notice_body"></span>
+                </div>
+            </div>
+
+            <div class="notice_side_con">
+                <img class="notice_image" id="notice_image" src="" alt="">
+                <span class="notice_image_desc" id="notice_image_desc"></span>
+                <a class="btn btn_notice" id="notice_link" href="#" target="_blank">New trailer</a>
+            </div>
+
+            <img class="notice_deco notice_flower notice_flower_1" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="notice_deco notice_flower notice_flower_2" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="notice_deco notice_flower notice_flower_3" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+            <img class="notice_deco notice_flower notice_flower_4" src="assets/Decorations/Flower.png" alt="" aria-hidden="true">
+
+            <img class="notice_deco notice_star notice_star_1" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="notice_deco notice_star notice_star_2" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+            <img class="notice_deco notice_star notice_star_3" src="assets/Decorations/Star.png" alt="" aria-hidden="true">
+        </div>
+
+        <div class="news_buttons_con">
+            <a href="#" target="_blank" class="btn btn_pink">Change Log</a>
+            <a href="https://acggoods.com/store/abcia2" target="_blank" class="btn btn_green">Merch</a>
+            <button type="button" class="btn btn_yellow" id="credits_open_btn">Credits</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span class="footer_main">✦ Gacha Story || abcia2contact@gmail.com ✦</span>
+        <span class="footer_links">
+            <a href="privacy.html" class="footer_link">Privacy Policy</a>
+            <span class="footer_sep">·</span>
+            <a href="terms.html" class="footer_link">Terms of Service</a>
+        </span>
+    </footer>
+
+    <div class="credits_overlay" id="credits_overlay" aria-hidden="true">
+        <div class="credits_modal" role="dialog" aria-modal="true" aria-labelledby="credits_title_label">
+            <div class="credits_header">
+                <span class="credits_title" id="credits_title_label">Credits</span>
+                <button type="button" class="credits_close" id="credits_close_btn" aria-label="Close credits">✕</button>
+            </div>
+
+            <div class="divider credits_divider" aria-hidden="true">
+                <svg class="divider_sparkle" aria-hidden="true">
+                    <use href="assets/sprite.svg#icon-sparkle"></use>
+                </svg>
+                <span class="divider_line"></span>
+                <svg class="divider_sparkle" aria-hidden="true">
+                    <use href="assets/sprite.svg#icon-sparkle"></use>
+                </svg>
+            </div>
+
+            <div class="credits_body">
+                <p class="credits_line"><span class="credits_icon" aria-hidden="true">💻</span> Developer: Abcia2</p>
+                <p class="credits_line"><span class="credits_icon" aria-hidden="true">🎵</span> Musics: pegonthetrack &amp; ELVGames, Crow Shade, Alex Coldfire;</p>
+                <p class="credits_line"><span class="credits_icon" aria-hidden="true">💖</span> Special thanks to Lunime and all KoFi supporters</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var openBtn = document.getElementById('credits_open_btn');
+            var overlay = document.getElementById('credits_overlay');
+            var closeBtn = document.getElementById('credits_close_btn');
+            if (!openBtn || !overlay || !closeBtn) return;
+
+            var CLOSE_ANIM_MS = 140;
+            // deve combaciare con la durata di .credits_overlay.is-closing / .credits_pop_out in style.css
+            var closeTimer = null;
+
+            function openCredits() {
+                if (closeTimer) {
+                    clearTimeout(closeTimer);
+                    closeTimer = null;
+                }
+                overlay.classList.remove('is-closing');
+                overlay.classList.add('is-open');
+                overlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            function closeCredits() {
+                if (!overlay.classList.contains('is-open')) return;
+                overlay.classList.remove('is-open');
+                overlay.classList.add('is-closing');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                openBtn.focus();
+
+                if (closeTimer) clearTimeout(closeTimer);
+                closeTimer = setTimeout(function () {
+                    overlay.classList.remove('is-closing');
+                    closeTimer = null;
+                }, CLOSE_ANIM_MS);
+            }
+
+            openBtn.addEventListener('click', openCredits);
+            closeBtn.addEventListener('click', closeCredits);
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeCredits();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeCredits();
+            });
+        })();
+    </script>
+
+    <script>
+        fetch('https://abcia2.github.io/GachaStory-NoticeBoard/notice.json')
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                var n = data.en;
+                if (!n) return;
+
+                document.getElementById('notice_title').textContent = n.Title;
+                document.getElementById('notice_body').textContent = n.Body;
+
+                var img = document.getElementById('notice_image');
+                img.src = n.Image_Link;
+                img.alt = n.Image_Description || '';
+
+                document.getElementById('notice_image_desc').textContent = n.Image_Description;
+
+                var link = document.getElementById('notice_link');
+                link.href = n.Link;
+                link.textContent = n.Link_Button_Text;
+            })
+            .catch(function (err) {
+                document.getElementById('notice_title').textContent = 'News unavailable';
+                document.getElementById('notice_body').textContent =
+                    "Couldn't load the latest news right now. Please try again later.";
+                console.error('Notice fetch failed:', err);
+            });
+    </script>
+
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        kofiWidgetOverlay.draw('abcia2', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.background-color': '#ffffff',
+            'floating-chat.donateButton.text-color': '#323842'
+        });
+    </script>
+</body>
+
+</html>

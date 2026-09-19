@@ -1,0 +1,715 @@
+/* ============================================
+     DECORAZIONI
+     Elementi puramente estetici: avatar e stelline
+     che sbordano dai pannelli. Nessuna animazione.
+     ============================================ */
+
+/* --------------------------------------------
+     HERO — fiori (sinistra) e stelle (destra)
+     -------------------------------------------- */
+
+.hero_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+    z-index: 3;
+    /* sopra il pannello: alcune lo scavalcano come nel concept */
+}
+
+/* --- FIORI: lato sinistro --- */
+
+.hero_flower_1 {
+    top: 26%;
+    left: 6%;
+    width: clamp(30px, 4.5vw, 64px);
+    transform: rotate(-14deg);
+}
+
+.hero_flower_2 {
+    top: 36%;
+    left: 7%;
+    width: clamp(44px, 7vw, 98px);
+    transform: rotate(12deg);
+}
+
+.hero_flower_3 {
+    top: 50%;
+    left: 5%;
+    width: clamp(64px, 10.5vw, 148px);
+    transform: rotate(-8deg);
+}
+
+.hero_flower_4 {
+    top: 70%;
+    left: 14%;
+    width: clamp(96px, 15.5vw, 218px);
+    transform: rotate(16deg);
+    /* il più grande: scavalca l'angolo del pannello */
+}
+
+.hero_flower_5 {
+    top: 78%;
+    left: 4%;
+    width: clamp(44px, 7vw, 98px);
+    transform: rotate(-20deg);
+}
+
+.hero_flower_6 {
+    top: 90%;
+    left: 10%;
+    width: clamp(30px, 4.5vw, 64px);
+    transform: rotate(6deg);
+}
+
+/* --- STELLE: lato destro --- */
+
+.hero_star_1 {
+    top: 4%;
+    right: 0%;
+    width: clamp(84px, 14vw, 200px);
+    transform: rotate(-12deg);
+    /* la più grande, in alto */
+}
+
+.hero_star_2 {
+    top: 27%;
+    right: 2%;
+    width: clamp(44px, 7vw, 96px);
+    transform: rotate(10deg);
+}
+
+.hero_star_3 {
+    top: 37%;
+    right: 9%;
+    width: clamp(24px, 3.6vw, 50px);
+    transform: rotate(-6deg);
+}
+
+.hero_star_4 {
+    top: 40%;
+    right: 3%;
+    width: clamp(36px, 5.8vw, 80px);
+    transform: rotate(18deg);
+}
+
+.hero_star_5 {
+    top: 80%;
+    right: 16%;
+    width: clamp(64px, 10.5vw, 148px);
+    transform: rotate(-10deg);
+}
+
+.hero_star_6 {
+    top: 85%;
+    right: 2%;
+    width: clamp(48px, 7.6vw, 106px);
+    transform: rotate(14deg);
+}
+
+.hero_star_7 {
+    top: 91%;
+    right: 11%;
+    width: clamp(26px, 4vw, 56px);
+    transform: rotate(-18deg);
+}
+
+.hero_star_8 {
+    top: 96%;
+    right: 0%;
+    width: clamp(32px, 4.8vw, 68px);
+    transform: rotate(8deg);
+}
+
+/* --------------------------------------------
+     BRACELETS — bracciali decorativi (dietro al pannello)
+     e stelline bianche (sopra al pannello)
+     -------------------------------------------- */
+
+/* Ancora per le decorazioni: ha ESATTAMENTE le stesse dimensioni/centratura
+   del pannello rosa (stesso width:100%/max-width), cosi' le decorazioni
+   restano ancorate ai suoi angoli a QUALSIASI larghezza, invece di scalare
+   con la sezione (che e' larga quanto tutta la pagina). Sotto ai 900px il
+   pannello (e quindi l'ancora) e' fluido come prima; sopra i 900px il
+   pannello smette di crescere e le decorazioni restano "ferme" con lui. */
+.bracelets_frame {
+    position: relative;
+    width: 100%;
+    max-width: var(--panel-max-width);
+}
+
+.bracelets_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+}
+
+/* --- bracciali grandi: per lo piu' fuori scena / dietro al pannello --- */
+
+.bracelets_chain {
+    z-index: 1;
+    /* sotto al pannello: e' lui a "tagliarli" */
+}
+
+.bracelets_chain_top {
+    top: -59%;
+    left: 77.4%;
+    width: clamp(110px, 38.4%, 360px);
+    transform: rotate(158deg);
+}
+
+.bracelets_chain_bottom {
+    top: 0.4%;
+    left: -32.1%;
+    width: clamp(170px, 59.5%, 540px);
+    transform: rotate(-5deg);
+}
+
+/* --- stelline bianche: sopra al pannello, sparse sui 4 angoli --- */
+
+.bracelets_sparkle {
+    z-index: 3;
+}
+
+/* gruppo in alto a sinistra (2) */
+.bracelets_sparkle_1 {
+    top: -13.1%;
+    left: -3.1%;
+    width: clamp(18px, 5.4%, 55px);
+}
+
+.bracelets_sparkle_2 {
+    top: -14.8%;
+    left: -0.3%;
+    width: clamp(26px, 9.8%, 95px);
+}
+
+/* gruppo in basso a sinistra (3) */
+.bracelets_sparkle_3 {
+    top: 89.1%;
+    left: -3.7%;
+    width: clamp(22px, 8%, 80px);
+}
+
+.bracelets_sparkle_4 {
+    top: 102.2%;
+    left: 3%;
+    width: clamp(19px, 6.9%, 68px);
+}
+
+.bracelets_sparkle_5 {
+    top: 114.6%;
+    left: -2.3%;
+    width: clamp(14px, 4.75%, 48px);
+}
+
+/* gruppo in basso a destra (3) */
+.bracelets_sparkle_6 {
+    top: 69.5%;
+    left: 99.2%;
+    width: clamp(12px, 3.9%, 40px);
+}
+
+.bracelets_sparkle_7 {
+    top: 81.3%;
+    left: 94.8%;
+    width: clamp(20px, 7.4%, 74px);
+}
+
+.bracelets_sparkle_8 {
+    top: 103.4%;
+    left: 99.7%;
+    width: clamp(10px, 3.1%, 32px);
+}
+
+@media (max-width: 640px) {
+
+    /* sui telefoni tengo solo le stelline piu' vicine al pannello */
+    .bracelets_sparkle_5,
+    .bracelets_sparkle_8 {
+        display: none;
+    }
+}
+
+
+/* --------------------------------------------
+     STORY — stelle vicino ad Ava, fiori vicino ad About,
+     2 fiori sulla card "Multiple endings"
+     -------------------------------------------- */
+
+/* story_char_con e' gia' l'ancora giusta (width:100%/max-width
+   var(--divider_width)): le decorazioni restano quindi ancorate
+   ai suoi angoli a qualsiasi larghezza, invece di scalare con la
+   section. Le basta position:relative. */
+.story_char_con {
+    position: relative;
+}
+
+.story_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+    z-index: 3;
+}
+
+/* --- stelle: cascata a sinistra, dalla card di Ava verso il basso --- */
+
+.story_star_1 {
+    top: 65.8%;
+    left: -5.4%;
+    width: clamp(21px, 6.3%, 82px);
+    transform: rotate(-8deg);
+}
+
+.story_star_2 {
+    top: 78.8%;
+    left: -9.5%;
+    width: clamp(37px, 11.3%, 147px);
+    transform: rotate(10deg);
+}
+
+.story_star_3 {
+    top: 109.2%;
+    left: -9.5%;
+    width: clamp(17px, 5.2%, 68px);
+    transform: rotate(-14deg);
+}
+
+.story_star_4 {
+    top: 122.7%;
+    left: -3.4%;
+    width: clamp(11px, 3.2%, 42px);
+    transform: rotate(6deg);
+}
+
+.story_star_5 {
+    top: 133.5%;
+    left: -8.4%;
+    width: clamp(11px, 3.2%, 42px);
+    transform: rotate(-10deg);
+}
+
+/* --- fiori: angolo in alto a destra della card About --- */
+
+.story_flower_1 {
+    top: -8.1%;
+    right: -5.4%;
+    width: clamp(31px, 9.3%, 121px);
+    transform: rotate(8deg);
+}
+
+.story_flower_2 {
+    top: 17.3%;
+    right: -4.5%;
+    width: clamp(23px, 7%, 91px);
+    transform: rotate(-12deg);
+}
+
+@media (max-width: 640px) {
+
+    /* sui telefoni le card si impilano: tengo solo le decorazioni
+       piu' vicine, le altre affollerebbero la colonna stretta */
+    .story_star_3,
+    .story_star_4,
+    .story_star_5 {
+        display: none;
+    }
+
+    /* i fiori restano ancorati a .story_char_con (che ora e' alta
+       quanto le due card impilate), quindi il loro "top" va
+       ricalcolato per restare vicino all'angolo della card About,
+       che ora e' sotto invece che a fianco. */
+    .story_flower_1 {
+        top: 38.4%;
+    }
+
+    .story_flower_2 {
+        top: 52.9%;
+    }
+}
+
+/* --- 2 fiori sulla card "Multiple endings" --- */
+
+.story_branch_card_pink {
+    position: relative;
+}
+
+.story_branch_flower_1 {
+    top: 110.7%;
+    right: -1.3%;
+    width: clamp(27px, 19.5%, 55px);
+    transform: rotate(-10deg);
+}
+
+.story_branch_flower_2 {
+    top: 150.5%;
+    right: -6.5%;
+    width: clamp(30px, 21.4%, 60px);
+    transform: rotate(12deg);
+}
+
+@media (max-width: 640px) {
+
+    /* sui telefoni il gap tra la card e il testo sotto e' troppo
+       stretto: se restano alle percentuali "desktop" i fiori
+       finiscono sopra il testo invece che vicino all'angolo della
+       card. Li tengo piu' in alto (vicino all'angolo) e nascondo
+       il secondo per non affollare. */
+    .story_branch_flower_1 {
+        top: 82%;
+        right: -6%;
+        width: clamp(20px, 15%, 36px);
+    }
+
+    .story_branch_flower_2 {
+        display: none;
+    }
+}
+
+/* --------------------------------------------
+     DOWNLOAD — stelle vicino al titolo, fiori vicino ai bottoni
+     -------------------------------------------- */
+
+/* stessa logica di .bracelets_frame: ancora con lo stesso
+   width/max-width del contenuto, cosi' le decorazioni non
+   scalano con la section a tutta larghezza. */
+.download_frame {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(30px, 4.5vw, 48px);
+    width: 100%;
+    max-width: var(--panel-max-width);
+}
+
+.download_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+    z-index: 3;
+}
+
+/* --- stelle: in alto a destra, vicino al titolo --- */
+
+.download_star_1 {
+    top: 5.4%;
+    right: -5.1%;
+    width: clamp(39px, 11.8%, 106px);
+    transform: rotate(-10deg);
+}
+
+.download_star_2 {
+    top: 18.4%;
+    right: 7.7%;
+    width: clamp(15px, 4.5%, 40px);
+    transform: rotate(14deg);
+}
+
+.download_star_3 {
+    top: 27%;
+    right: 1.4%;
+    width: clamp(22px, 6.7%, 60px);
+    transform: rotate(-6deg);
+}
+
+/* --- fiori: in basso a sinistra, vicino ai bottoni --- */
+
+.download_flower_1 {
+    top: 67.3%;
+    left: -4.3%;
+    width: clamp(37px, 11.2%, 101px);
+    transform: rotate(10deg);
+}
+
+.download_flower_2 {
+    top: 54.6%;
+    left: 1.6%;
+    width: clamp(20px, 6.1%, 55px);
+    transform: rotate(-14deg);
+}
+
+.download_flower_3 {
+    top: 67.3%;
+    left: 8.3%;
+    width: clamp(13px, 3.9%, 35px);
+    transform: rotate(16deg);
+}
+
+.download_flower_4 {
+    top: 61.3%;
+    left: 12.4%;
+    width: clamp(10px, 3%, 27px);
+    transform: rotate(-8deg);
+}
+
+@media (max-width: 640px) {
+    .download_star_2,
+    .download_flower_4 {
+        display: none;
+    }
+}
+
+/* --------------------------------------------
+     NEWS — fiori in alto a sinistra, stelle in basso a destra
+     del pannello notizie
+     -------------------------------------------- */
+
+/* .notice_panel e' gia' position:relative con width:100%/max-width
+   var(--panel-max-width): la uso direttamente come ancora, senza
+   bisogno di un wrapper aggiuntivo. */
+
+.notice_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+    z-index: 3;
+}
+
+/* --- fiori: angolo in alto a sinistra --- */
+
+.notice_flower_1 {
+    top: -19.5%;
+    left: -3.6%;
+    width: clamp(29px, 8.9%, 80px);
+    transform: rotate(-6deg);
+}
+
+.notice_flower_2 {
+    top: -27.1%;
+    left: 7%;
+    width: clamp(16px, 5%, 45px);
+    transform: rotate(12deg);
+}
+
+.notice_flower_3 {
+    top: 6.4%;
+    left: -3.6%;
+    width: clamp(18px, 5.6%, 50px);
+    transform: rotate(-10deg);
+}
+
+.notice_flower_4 {
+    top: 22.2%;
+    left: -0.8%;
+    width: clamp(9px, 2.8%, 25px);
+    transform: rotate(14deg);
+}
+
+/* --- stelle: angolo in basso a destra --- */
+
+.notice_star_1 {
+    top: 63.9%;
+    right: -1.2%;
+    width: clamp(13px, 4%, 36px);
+    transform: rotate(-8deg);
+}
+
+.notice_star_2 {
+    top: 75.9%;
+    right: -2.2%;
+    width: clamp(22px, 6.8%, 61px);
+    transform: rotate(10deg);
+}
+
+.notice_star_3 {
+    top: 91%;
+    right: -2.2%;
+    width: clamp(38px, 11.5%, 104px);
+    transform: rotate(-14deg);
+}
+
+@media (max-width: 640px) {
+    .notice_flower_4,
+    .notice_star_1 {
+        display: none;
+    }
+}
+
+/* --------------------------------------------
+     ABOUT — avatar Abcia2
+     -------------------------------------------- */
+
+.about_avatar_spacer {
+    position: relative;
+    /* ancora per l'avatar posizionato in modo assoluto */
+}
+
+.about_avatar {
+    position: absolute;
+    left: -15%;
+    bottom: -65%;
+    height: 240%;
+    width: auto;
+    max-width: none;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    z-index: 3;
+}
+
+/* --------------------------------------------
+     ABOUT — stelline (6, in due gruppi diagonali)
+     -------------------------------------------- */
+
+.about_sparkle {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    z-index: 4;
+    height: auto;
+}
+
+/* gruppo in alto a sinistra */
+.about_sparkle_1 {
+    top: -15%;
+    left: -7%;
+    width: clamp(52px, 10vw, 132px);
+    transform: rotate(4deg);
+}
+
+.about_sparkle_2 {
+    top: 10%;
+    left: 1%;
+    width: clamp(30px, 5.5vw, 62px);
+    transform: rotate(8deg);
+}
+
+.about_sparkle_3 {
+    top: 26%;
+    left: -3%;
+    width: clamp(22px, 4vw, 46px);
+    transform: rotate(-10deg);
+}
+
+/* gruppo in basso a destra */
+.about_sparkle_4 {
+    bottom: 8%;
+    right: 0%;
+    width: clamp(26px, 4.6vw, 52px);
+    transform: rotate(-3deg);
+}
+
+.about_sparkle_5 {
+    bottom: 14%;
+    right: -6%;
+    width: clamp(32px, 6vw, 68px);
+    transform: rotate(-10deg);
+}
+
+.about_sparkle_6 {
+    bottom: -20%;
+    right: -6%;
+    width: clamp(50px, 9.5vw, 126px);
+    transform: rotate(9deg);
+}
+
+/* --------------------------------------------
+     MOBILE
+     -------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    /* --- HERO: meno decorazioni, ma comunque grandi --- */
+    .hero_flower_2,
+    .hero_flower_6,
+    .hero_star_3,
+    .hero_star_4,
+    .hero_star_7 {
+        display: none;
+    }
+
+    .hero_flower_1 {
+        top: 20%;
+        left: 2%;
+        width: 34px;
+    }
+
+    .hero_flower_3 {
+        top: 42%;
+        left: 0;
+        width: 62px;
+    }
+
+    .hero_flower_4 {
+        top: 72%;
+        left: 4%;
+        width: 96px;
+    }
+
+    .hero_flower_5 {
+        top: 88%;
+        left: 1%;
+        width: 44px;
+    }
+
+    .hero_star_1 {
+        top: 3%;
+        right: 0;
+        width: 88px;
+    }
+
+    .hero_star_2 {
+        top: 26%;
+        right: 1%;
+        width: 42px;
+    }
+
+    .hero_star_5 {
+        top: 78%;
+        right: 8%;
+        width: 62px;
+    }
+
+    .hero_star_6 {
+        top: 90%;
+        right: 0;
+        width: 46px;
+    }
+
+    .about_avatar {
+        /* su mobile resta centrato nello spazio sopra il testo */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        height: 118%;
+    }
+
+    /* sui lati stretti tengo solo una stellina per gruppo */
+    .about_sparkle_2,
+    .about_sparkle_3,
+    .about_sparkle_5 {
+        display: none;
+    }
+
+    .about_sparkle_1 {
+        top: -14px;
+        left: -8px;
+        width: 62px;
+        transform: rotate(-14deg);
+    }
+
+    .about_sparkle_4 {
+        bottom: 10%;
+        right: -6px;
+        width: 40px;
+        transform: rotate(22deg);
+    }
+
+    .about_sparkle_6 {
+        bottom: -16px;
+        right: 0;
+        width: 56px;
+        transform: rotate(9deg);
+    }
+}

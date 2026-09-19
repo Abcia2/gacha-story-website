@@ -1,0 +1,5 @@
+User-agent:
+* Allow: /
+Disallow: /Claude_Files/
+
+Sitemap: https://gachastory.abcia2.com/sitemap.xml

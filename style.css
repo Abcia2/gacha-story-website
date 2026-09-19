@@ -1,0 +1,1333 @@
+body {
+    margin: 0;
+    font-family: "Baloo 2", sans-serif;
+    background: var(--blue_primary);
+    overflow-x: hidden;
+}
+
+img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+strong {
+    font-weight: 700;
+}
+
+section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    padding: clamp(24px, 6vw, 64px) clamp(16px, 5vw, 48px);
+}
+
+.bup:active {
+    transform: translateY(3px);
+}
+
+/* ============================================
+     HERO
+     ============================================ */
+
+.hero {
+    flex-direction: column;
+    gap: clamp(20px, 4vw, 36px);
+}
+
+.hero_bg_wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    height: 650px;
+
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+    mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+}
+
+.hero_bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/Backgrounds/Hero_Background.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px) saturate(1.1);
+    transform: scale(1.08);
+}
+
+.hero_panel {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--panel-max-width);
+    background: var(--blue_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--blue_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 48px);
+    text-align: center;
+    box-shadow: 0 var(--shadow_size_big) 0 var(--blue_shadow);
+}
+
+.hero_logo {
+    max-width: min(90%, 520px);
+    margin: 0 auto clamp(16px, 3vw, 28px);
+    display: block;
+}
+
+.hero_subtitle {
+    color: var(--blue_shadow);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    margin: 0 0 clamp(20px, 4vw, 32px);
+}
+
+.hero_actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(12px, 2.5vw, 20px);
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .hero {
+        min-height: auto;
+        padding: 32px 12px;
+    }
+
+    .hero_bg_wrap {
+        height: auto;
+    }
+
+    .hero_actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero_panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+     STORY
+     ============================================ */
+.story {
+    flex-direction: column;
+    gap: clamp(50px, 6vw, 80px);
+}
+
+.story_char_con {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 40px);
+    width: 100%;
+    max-width: var(--divider_width);
+    margin: 0 auto;
+}
+
+.story_ava_con {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 clamp(220px, 32%, 360px);
+    overflow: hidden;
+    background: var(--purple_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--purple_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--purple_shadow);
+}
+
+.story_ava_img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.story_about_con {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 0%;
+    background: var(--green_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--green_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 48px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--green_shadow);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.story_about_title {
+    font-family: "Baloo 2", sans-serif;
+    font-size: xx-large;
+    font-weight: 700;
+    color: var(--green_text);
+}
+
+.story_about_text {
+    font-family: "Baloo 2", sans-serif;
+    font-size: large;
+    font-weight: 400;
+    color: var(--green_text);
+}
+
+.story_branch_con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 4vw, 40px);
+    width: 100%;
+}
+
+.story_branch_titles_con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.story_branch_title {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue_shadow);
+}
+
+.story_branch_text {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 450;
+    color: var(--blue_shadow);
+}
+
+.story_branch_text_2 {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.27rem;
+    font-weight: 600;
+    color: var(--blue_shadow);
+}
+
+.story_branch_cards_con {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(16px, 3vw, 32px);
+    width: 100%;
+    max-width: var(--divider_width);
+    margin: 0 auto;
+}
+
+.story_branch_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 16px);
+    flex: 1 1 220px;
+    max-width: 280px;
+    border-radius: clamp(16px, 2.5vw, 28px);
+    padding: clamp(20px, 3vw, 32px) clamp(16px, 3vw, 24px);
+    text-align: center;
+}
+
+.story_branch_card:active {
+    transform: translateY(3px);
+}
+
+.story_branch_card_orange {
+    background: var(--orange_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--orange_border);
+    box-shadow: 0 var(--shadow_size_med) 0 var(--orange_shadow);
+    color: var(--orange_text);
+}
+
+.story_branch_card_green {
+    background: var(--green_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--green_border);
+    box-shadow: 0 var(--shadow_size_med) 0 var(--green_shadow);
+    color: var(--green_text);
+}
+
+.story_branch_card_pink {
+    background: var(--pink_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--pink_border);
+    box-shadow: 0 var(--shadow_size_med) 0 var(--pink_shadow);
+    color: var(--pink_text);
+}
+
+.story_branch_card_orange:active {
+    box-shadow: 0 2px 0 var(--orange_shadow);
+}
+
+.story_branch_card_green:active {
+    box-shadow: 0 2px 0 var(--green_shadow);
+}
+
+.story_branch_card_pink:active {
+    box-shadow: 0 2px 0 var(--pink_shadow);
+}
+
+.story_branch_card_icon {
+    width: clamp(58px, 8vw, 68px);
+    height: clamp(58px, 8vw, 68px);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.story_branch_card_icon_img {
+    height: 70%;
+    object-fit: contain;
+    display: block;
+}
+
+.story_branch_card_icon_yellow {
+    background: var(--yellow_primary);
+    border: 4px solid var(--yellow_border);
+    box-shadow: 0 3px 0 var(--yellow_shadow);
+}
+
+.story_branch_card_icon_blue {
+    background: var(--blue_primary);
+    border: 4px solid var(--blue_border);
+    box-shadow: 0 3px 0 var(--blue_shadow);
+}
+
+.story_branch_card_icon_purple {
+    background: var(--purple_primary);
+    border: 4px solid var(--purple_border);
+    box-shadow: 0 3px 0 var(--purple_shadow);
+}
+
+.story_branch_card_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+@media (max-width: 640px) {
+    .story_char_con {
+        flex-direction: column;
+    }
+
+    .story_ava_con {
+        flex: none;
+        width: 100%;
+        height: clamp(220px, 60vw, 320px);
+    }
+
+    .story_about_text_con {
+        margin-bottom: 20px;
+    }
+
+    .story_about_con {
+        text-align: center;
+        align-items: center;
+    }
+
+    .story_branch_title {
+        font-size: 1.5rem;
+    }
+
+    .story_branch_text {
+        font-size: 1rem;
+    }
+
+    .story_branch_text_2 {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ============================================
+     BRACELETS
+     ============================================ */
+
+.bracelets_bg_wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    height: 800px;
+
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+    mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+}
+
+.bracelets_bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/Backgrounds/Bracelets_Background.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px) saturate(1.1);
+    transform: scale(1.08);
+}
+
+.bracelets_logo {
+    position: relative;
+    z-index: 2;
+    max-width: min(80%, 420px);
+    display: block;
+}
+
+.bracelets_panel {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--panel-max-width);
+    background: var(--pink_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--pink_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 48px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--pink_shadow);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(24px, 4vw, 48px);
+}
+
+.bracelets_text_con {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 16px);
+    flex: 1 1 55%;
+    text-align: left;
+}
+
+.bracelets_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--pink_text);
+}
+
+.bracelets_text {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    color: var(--pink_text);
+    line-height: 1.4;
+}
+
+.bracelets_grid_con {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(10px, 2vw, 16px);
+    flex: 0 0 auto;
+}
+
+.bracelets_swatch {
+    /*
+    width: clamp(64px, 10vw, 90px);
+    height: clamp(64px, 10vw, 90px);
+    */
+    width: 90px;
+    height: 90px;
+    border-radius: clamp(14px, 2vw, 20px);
+    background: var(--white_primary);
+    border: 5px solid var(--white_border);
+    box-shadow: 0 4px 0 var(--white_shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bracelets_swatch:active {
+    transform: translateY(3px);
+}
+
+.bracelets_swatch:active {
+    box-shadow: 0 2px 0 var(--white_shadow);
+}
+
+.bracelets_swatch_img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 640px) {
+
+    .bracelets_bg_wrap {
+        height: 700px;
+    }
+
+    .bracelets_panel {
+        flex-direction: column;
+    }
+
+    .bracelets_text_con {
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* ============================================
+     DOWNLOAD
+     ============================================ */
+
+.download {
+    flex-direction: column;
+    gap: clamp(30px, 4.5vw, 48px);
+}
+
+.download_titles_con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: clamp(6px, 1.5vw, 10px);
+}
+
+.download_title {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue_shadow);
+}
+
+.download_text {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--blue_shadow);
+}
+
+.download_buttons_con {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(14px, 2.5vw, 22px);
+    width: 100%;
+    max-width: var(--panel-max-width);
+    margin: 0 auto;
+}
+
+.download_btn {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.6vw, 14px);
+    flex: 0 1 240px;
+    justify-content: center;
+    padding: clamp(8px, 1.3vw, 11px) clamp(28px, 4vw, 40px);
+    border-radius: 999px;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.download_btn:active {
+    transform: translateY(3px);
+}
+
+.download_btn_label {
+    white-space: nowrap;
+}
+
+.download_btn_icon {
+    width: clamp(24px, 3vw, 28px);
+    height: clamp(24px, 3vw, 28px);
+    flex-shrink: 0;
+    display: block;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.download_btn_icon_playstore {
+    -webkit-mask-image: url("assets/Icons/playstore.svg");
+    mask-image: url("assets/Icons/playstore.svg");
+}
+
+.download_btn_icon_appstore {
+    -webkit-mask-image: url("assets/Icons/appstore.svg");
+    mask-image: url("assets/Icons/appstore.svg");
+}
+
+.download_btn_icon_itchio {
+    -webkit-mask-image: url("assets/Icons/itchio.svg");
+    mask-image: url("assets/Icons/itchio.svg");
+}
+
+.download_btn_icon_gdevelop {
+    -webkit-mask-image: url("assets/Icons/gdevelop.svg");
+    mask-image: url("assets/Icons/gdevelop.svg");
+}
+
+.download_btn_green {
+    background: var(--green_primary);
+    border: 4px solid var(--green_border);
+    box-shadow: 0 4px 0 var(--green_shadow);
+    color: var(--green_text);
+}
+
+.download_btn_green .download_btn_icon {
+    background-color: var(--green_shadow);
+}
+
+.download_btn_green:active {
+    box-shadow: 0 2px 0 var(--green_shadow);
+}
+
+.download_btn_orange {
+    background: var(--orange_primary);
+    border: 4px solid var(--orange_border);
+    box-shadow: 0 4px 0 var(--orange_shadow);
+    color: var(--orange_text);
+}
+
+.download_btn_orange .download_btn_icon {
+    background-color: var(--orange_shadow);
+}
+
+.download_btn_orange:active {
+    box-shadow: 0 2px 0 var(--orange_shadow);
+}
+
+.download_btn_red {
+    background: var(--red_primary);
+    border: 4px solid var(--red_border);
+    box-shadow: 0 4px 0 var(--red_shadow);
+    color: var(--red_text);
+}
+
+.download_btn_red .download_btn_icon {
+    background-color: var(--red_shadow);
+}
+
+.download_btn_red:active {
+    box-shadow: 0 2px 0 var(--red_shadow);
+}
+
+.download_btn_purple {
+    background: var(--purple_primary);
+    border: 4px solid var(--purple_border);
+    box-shadow: 0 4px 0 var(--purple_shadow);
+    color: var(--purple_text);
+}
+
+.download_btn_purple .download_btn_icon {
+    background-color: var(--purple_shadow);
+}
+
+.download_btn_purple:active {
+    box-shadow: 0 2px 0 var(--purple_shadow);
+}
+
+@media (max-width: 640px) {
+    .download_btn {
+        flex: 1 1 100%;
+    }
+}
+
+/* ============================================
+     ABOUT
+     ============================================ */
+
+.about_panel {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--panel-max-width);
+    background: var(--abcia2_violet_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--abcia2_violet_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 48px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--abcia2_violet_shadow);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(20px, 4vw, 40px);
+}
+
+.about_avatar_spacer {
+    flex: 0 0 clamp(140px, 26%, 240px);
+    align-self: stretch;
+}
+
+.about_content_con {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(16px, 3vw, 24px);
+    align-self: stretch;
+}
+
+.about_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+    color: #fff;
+    text-align: right;
+}
+
+.about_text_con {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: clamp(2px, 0.6vw, 6px);
+}
+
+.about_text {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: #fff;
+    text-align: right;
+}
+
+.about_bottom_con {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: clamp(20px, 3.5vw, 32px);
+}
+
+.about_socials_con {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(10px, 1.8vw, 14px);
+}
+
+.about_social_icon {
+    width: clamp(28px, 3.5vw, 34px);
+    height: clamp(28px, 3.5vw, 34px);
+    display: block;
+    object-fit: contain;
+}
+
+@media (max-width: 640px) {
+    .about_panel {
+        flex-direction: column;
+    }
+
+    .about_avatar_spacer {
+        flex: none;
+        align-self: stretch;
+        width: 100%;
+        height: clamp(140px, 45vw, 200px);
+    }
+
+    .about_content_con {
+        align-items: center;
+        text-align: center;
+    }
+
+    .about_text_con {
+        align-items: center;
+    }
+
+    .about_bottom_con {
+        flex-direction: column;
+    }
+
+    .about_text {
+        text-align: center;
+    }
+}
+
+/* ============================================
+     NEWS
+     ============================================ */
+
+.news {
+    flex-direction: column;
+    gap: clamp(24px, 4vw, 40px);
+    padding-bottom: 0;
+    /* il footer si attacca senza stacco */
+}
+
+.news_bg_wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+
+    /* sfuma SOLO in alto: in basso resta pieno per fondersi col footer */
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 15%,
+            black 100%);
+    mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 15%,
+            black 100%);
+}
+
+.news_bg {
+    position: absolute;
+    inset: -40px;
+    /* sborda da tutti i lati: nasconde i bordi sfumati dal blur.
+       Il wrapper ha overflow:hidden, quindi l'eccesso viene ritagliato. */
+    background-image: url("assets/Backgrounds/Hero_Background.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    /* ancorata IN BASSO: la fine dell'immagine (l'erba) resta sempre
+       visibile a contatto col footer, invece di essere tagliata via */
+    filter: blur(6px) saturate(1.1);
+}
+
+.news_title {
+    position: relative;
+    z-index: 2;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    color: var(--blue_shadow);
+}
+
+.notice_panel {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--panel-max-width);
+    height: clamp(300px, 42vw, 380px);
+    /* altezza FISSA: il testo scorre dentro */
+    background: var(--blue_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--blue_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--blue_shadow);
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(18px, 3vw, 32px);
+}
+
+.notice_text_con {
+    flex: 1 1 0%;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.5vw, 14px);
+}
+
+.notice_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--blue_shadow);
+    flex-shrink: 0;
+}
+
+.notice_body_scroll {
+    flex: 1 1 0%;
+    overflow-y: auto;
+    /* SOLO questo blocco scorre, il pannello resta fermo */
+    padding-right: 12px;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue_border) transparent;
+}
+
+/* Chrome / Safari / Edge */
+.notice_body_scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.notice_body_scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+}
+
+.notice_body_scroll::-webkit-scrollbar-thumb {
+    background: var(--blue_border);
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+}
+
+.notice_body_scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--blue_shadow);
+}
+
+.notice_body {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+    color: var(--blue_shadow);
+    line-height: 1.5;
+    white-space: pre-line;
+    /* rispetta gli a capo del JSON */
+}
+
+.notice_side_con {
+    flex: 0 0 clamp(210px, 40%, 300px);
+    /* larghezza fissa e più ampia: immagine e bottone non si muovono */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* immagine + bottone centrati verticalmente nel pannello */
+    gap: clamp(8px, 1.5vw, 12px);
+}
+
+.notice_image {
+    width: 100%;
+    height: clamp(130px, 19vw, 175px);
+    /* altezza fissa */
+    object-fit: cover;
+    border: 5px solid #fff;
+    border-radius: clamp(12px, 2vw, 20px);
+    display: block;
+    background: var(--purple_primary);
+}
+
+.notice_image_desc {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+    color: var(--blue_shadow);
+    text-align: center;
+}
+
+.news_buttons_con {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(14px, 2.5vw, 22px);
+    max-width: 480px;
+    padding-bottom: clamp(24px, 5vw, 48px);
+}
+
+.news_buttons_con .btn {
+    flex: 0 0 200px;
+    /* stessa larghezza per tutti e tre */
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 640px) {
+    .notice_panel {
+        flex-direction: column;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .notice_side_con {
+        flex: none;
+        width: 100%;
+        height: auto;
+        order: -1;
+        /* immagine sopra il testo su mobile */
+    }
+
+    .notice_text_con {
+        height: auto;
+        min-height: 0;
+    }
+
+    .notice_body_scroll {
+        max-height: 42vh;
+        /* più spazio di lettura su mobile */
+    }
+
+    .news_buttons_con {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .news_buttons_con .btn {
+        flex: none;
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* ============================================
+     FOOTER
+     ============================================ */
+
+.footer {
+    background: var(--footer_primary_);
+    /* stesso verde in cui finisce l'immagine sopra: nessuno stacco */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(6px, 1.2vw, 10px);
+    padding: clamp(24px, 4vw, 40px) clamp(16px, 5vw, 48px);
+    text-align: center;
+}
+
+.footer_main {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.95rem, 1.7vw, 1.15rem);
+    color: var(--footer_text);
+}
+
+.footer_links {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+    color: var(--footer_text);
+}
+
+.footer_link {
+    color: var(--footer_text);
+    text-decoration: none;
+}
+
+.footer_link:hover {
+    text-decoration: underline;
+}
+
+.footer_sep {
+    margin: 0 6px;
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding-bottom: 110px;
+        /* spazio per l'overlay Ko-fi che sta in basso */
+    }
+}
+
+/* ============================================
+     BUTTONS
+     ============================================ */
+
+.btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: clamp(1rem, 1.9vw, 1.3rem);
+    line-height: 1;
+    /* i <button> non ereditano il line-height:1 del body come gli <a>: va forzato
+       qui, altrimenti un .btn su elemento <button> (es. Credits) risulta piu' alto
+       degli altri .btn su <a> a parita' di font/padding */
+    padding: clamp(10px, 2vw, 10px) clamp(24px, 4vw, 40px);
+    border-radius: 999px;
+    transition: transform 0.08s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:active {
+    transform: translateY(3px);
+}
+
+.btn_yellow {
+    background: var(--yellow_primary);
+    color: var(--yellow_shadow);
+    border: 5px solid var(--yellow_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--yellow_shadow);
+}
+
+.btn_yellow:active {
+    box-shadow: 0 2px 0 var(--yellow_shadow);
+}
+
+.btn_green {
+    background: var(--green_primary);
+    color: var(--green_shadow);
+    border: 5px solid var(--green_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--green_shadow);
+}
+
+.btn_green:active {
+    box-shadow: 0 2px 0 var(--green_shadow);
+}
+
+.btn_about {
+    background: var(--abcia2_yellow_primary);
+    color: var(--abcia2_yellow_text);
+    border: 5px solid var(--abcia2_yellow_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--abcia2_yellow_shadow);
+}
+
+.btn_about:active {
+    box-shadow: 0 2px 0 var(--abcia2_yellow_shadow);
+}
+
+.btn_pink {
+    background: var(--pink_primary);
+    color: var(--pink_text);
+    border: 5px solid var(--pink_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--pink_shadow);
+}
+
+.btn_pink:active {
+    box-shadow: 0 2px 0 var(--pink_shadow);
+}
+
+.btn_notice {
+    background: var(--purple_primary);
+    color: var(--purple_text);
+    border: 5px solid var(--purple_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--purple_shadow);
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    padding: clamp(8px, 1.5vw, 10px) clamp(20px, 3vw, 28px);
+}
+
+.btn_notice:active {
+    box-shadow: 0 2px 0 var(--purple_shadow);
+}
+
+/* ============================================
+     DIVIDER
+     ============================================ */
+.divider {
+    --divider_thick: clamp(4px, 0.9vw, 5px);
+    --divider_sparkle_size: clamp(26px, 4.5vw, 34px);
+    --divider_overlap: calc(var(--divider_sparkle_size) * 0.55);
+
+    display: flex;
+    align-items: center;
+    max-width: var(--divider_width);
+    margin: clamp(28px, 6vw, 56px) auto;
+    padding: 0 clamp(20px, 5vw, 48px);
+    color: var(--blue_border);
+}
+
+.divider_line {
+    flex: 1;
+    position: relative;
+    z-index: 0;
+    height: var(--divider_thick);
+    background: currentColor;
+    border-radius: 999px;
+    margin: 0 calc(-1 * var(--divider_overlap));
+}
+
+.divider_sparkle {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    width: var(--divider_sparkle_size);
+    height: var(--divider_sparkle_size);
+    fill: currentColor;
+    transform: rotate(90deg);
+}
+
+/* ============================================
+     CREDITS MODAL
+     ============================================ */
+.credits_overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 5vw, 32px);
+    background: rgba(13, 28, 66, 0.55);
+    opacity: 0;
+}
+
+.credits_overlay.is-open,
+.credits_overlay.is-closing {
+    display: flex;
+}
+
+.credits_overlay.is-open {
+    animation: credits_fade_in 0.12s ease-out forwards;
+}
+
+.credits_overlay.is-closing {
+    animation: credits_fade_out 0.14s ease-in forwards;
+}
+
+.credits_modal {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: var(--yellow_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--yellow_border);
+    border-radius: clamp(20px, 3vw, 32px);
+    padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 32px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--yellow_shadow);
+    font-family: "Baloo 2", sans-serif;
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+}
+
+.credits_overlay.is-open .credits_modal {
+    animation: credits_pop_in 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.02s forwards;
+}
+
+.credits_overlay.is-closing .credits_modal {
+    animation: credits_pop_out 0.14s ease-in forwards;
+}
+
+@keyframes credits_fade_in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes credits_fade_out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes credits_pop_in {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes credits_pop_out {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.85) translateY(6px);
+    }
+}
+
+.credits_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.credits_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--yellow_text);
+}
+
+.credits_close {
+    appearance: none;
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--red_text);
+    background: var(--red_primary);
+    border: var(--btn_border_size) solid var(--red_border);
+    border-radius: 14px;
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--red_shadow);
+    transition: transform 0.08s ease;
+}
+
+.credits_close:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 var(--red_shadow);
+}
+
+.credits_divider {
+    /* stesso componente .divider usato nel resto del sito, solo ricolorato
+       in giallo (via currentColor) e con margini piu' stretti per il modale */
+    color: var(--yellow_border);
+    max-width: none;
+    margin: clamp(14px, 3vw, 20px) 0;
+    padding: 0;
+    --divider_sparkle_size: clamp(20px, 4vw, 26px);
+}
+
+.credits_body {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 3vw, 20px);
+}
+
+.credits_line {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.4;
+    color: var(--yellow_text);
+}
+
+.credits_icon {
+    flex-shrink: 0;
+    font-size: 1.2em;
+}

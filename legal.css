@@ -1,0 +1,145 @@
+/* ============================================
+     LEGAL PAGES (Privacy Policy / Terms & Conditions)
+     stesso design system del resto del sito (vars.css):
+     pannelli con bordo spesso + ombra offset, font "Baloo 2".
+     ============================================ */
+
+.legal_header {
+    flex-direction: column;
+    gap: clamp(14px, 3vw, 20px);
+    padding-bottom: clamp(8px, 2vw, 16px);
+}
+
+.legal_header_panel {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    background: var(--blue_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--blue_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(24px, 4vw, 40px) clamp(20px, 4vw, 40px);
+    text-align: center;
+    box-shadow: 0 var(--shadow_size_big) 0 var(--blue_shadow);
+}
+
+.legal_logo_link {
+    display: inline-block;
+}
+
+.legal_logo {
+    max-width: min(70%, 280px);
+    margin: 0 auto clamp(12px, 2vw, 20px);
+    display: block;
+}
+
+.legal_title {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--blue_shadow);
+    margin: 0 0 6px;
+}
+
+.legal_updated {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+    color: var(--blue_border);
+    margin: 0;
+}
+
+.legal_content_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 4vw, 36px);
+    width: 100%;
+}
+
+.legal_panel {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    background: var(--white_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_big)) solid var(--white_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    padding: clamp(28px, 5vw, 48px) clamp(22px, 5vw, 44px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--white_shadow);
+    color: var(--white_text);
+}
+
+.legal_intro {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    line-height: 1.6;
+    margin: 0 0 clamp(20px, 4vw, 28px);
+}
+
+.legal_panel h2 {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+    color: var(--blue_shadow);
+    margin: clamp(28px, 5vw, 40px) 0 clamp(10px, 2vw, 14px);
+}
+
+.legal_panel h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal_panel p {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+    line-height: 1.65;
+    margin: 0 0 clamp(12px, 2.5vw, 16px);
+}
+
+.legal_panel ul {
+    margin: 0 0 clamp(12px, 2.5vw, 16px);
+    padding-left: clamp(20px, 3vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.legal_panel li {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+    line-height: 1.55;
+    list-style: disc;
+}
+
+.legal_panel a {
+    color: var(--blue_border);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.legal_panel a:hover {
+    color: var(--blue_shadow);
+}
+
+.legal_divider {
+    border: none;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(165, 165, 165, 0.4);
+    margin: clamp(24px, 4vw, 36px) 0 clamp(16px, 3vw, 22px);
+}
+
+.legal_credit {
+    font-size: clamp(0.8rem, 1.4vw, 0.9rem);
+    color: var(--white_border);
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+
+    .legal_header_panel,
+    .legal_panel {
+        padding: clamp(22px, 6vw, 32px) clamp(18px, 5vw, 24px);
+    }
+}
