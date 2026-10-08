@@ -663,6 +663,18 @@ section {
     box-shadow: 0 2px 0 var(--purple_shadow);
 }
 
+/* bottone non disponibile (es. App Store): niente link, niente pressione */
+.download_btn_disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: grayscale(0.7);
+}
+
+.download_btn_disabled:active {
+    transform: none;
+    box-shadow: 0 4px 0 var(--orange_shadow);
+}
+
 @media (max-width: 640px) {
     .download_btn {
         flex: 1 1 100%;

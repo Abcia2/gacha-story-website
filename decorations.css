@@ -333,36 +333,45 @@
     }
 }
 
-/* --- 2 fiori sulla card "Multiple endings" --- */
+/* --- 2 fiori sulla card "Multiple endings" ---
+   I fiori stanno in .story_branch_card_wrap (fratelli della card, non
+   figli): cosi' il translateY dell':active della card non li sposta.
+   Sono posizionati fuori dal bordo destro della card, per non coprire
+   ne' la card ne' il testo sotto. */
 
-.story_branch_card_pink {
+.story_branch_card_wrap {
     position: relative;
+    display: flex;
+    flex: 1 1 220px;
+    max-width: 280px;
+}
+
+.story_branch_card_wrap > .story_branch_card {
+    flex: 1 1 auto;
+    max-width: none;
 }
 
 .story_branch_flower_1 {
-    top: 110.7%;
-    right: -1.3%;
+    top: 48%;
+    right: -15%;
     width: clamp(27px, 19.5%, 55px);
     transform: rotate(-10deg);
 }
 
 .story_branch_flower_2 {
-    top: 150.5%;
-    right: -6.5%;
+    top: 76%;
+    right: -24%;
     width: clamp(30px, 21.4%, 60px);
     transform: rotate(12deg);
 }
 
 @media (max-width: 640px) {
 
-    /* sui telefoni il gap tra la card e il testo sotto e' troppo
-       stretto: se restano alle percentuali "desktop" i fiori
-       finiscono sopra il testo invece che vicino all'angolo della
-       card. Li tengo piu' in alto (vicino all'angolo) e nascondo
-       il secondo per non affollare. */
+    /* sui telefoni c'e' poco spazio ai lati della card: tengo un solo
+       fiore, piu' piccolo, a cavallo del bordo destro. */
     .story_branch_flower_1 {
-        top: 82%;
-        right: -6%;
+        top: 60%;
+        right: -8%;
         width: clamp(20px, 15%, 36px);
     }
 
