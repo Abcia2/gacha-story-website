@@ -663,16 +663,24 @@ section {
     box-shadow: 0 2px 0 var(--purple_shadow);
 }
 
-/* bottone non disponibile (es. App Store): niente link, niente pressione */
-.download_btn_disabled {
+/* bottone non disponibile (es. App Store): grigio, bordo tratteggiato,
+   piatto (niente ombra) e non premibile */
+.download_btn.download_btn_disabled {
+    background: #d6d3dc;
+    border: 4px dashed #9a95a6;
+    box-shadow: none;
+    color: #7d7889;
     cursor: not-allowed;
-    opacity: 0.5;
-    filter: grayscale(0.7);
+    opacity: 0.75;
 }
 
-.download_btn_disabled:active {
+.download_btn.download_btn_disabled .download_btn_icon {
+    background-color: #9a95a6;
+}
+
+.download_btn.download_btn_disabled:active {
     transform: none;
-    box-shadow: 0 4px 0 var(--orange_shadow);
+    box-shadow: none;
 }
 
 @media (max-width: 640px) {
