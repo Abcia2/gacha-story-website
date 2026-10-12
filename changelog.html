@@ -374,6 +374,21 @@
                         return;
                     }
 
+                    // ordine automatico: versione piu' alta in cima (3.10.0 > 3.9.2 > 3.0.1),
+                    // a parita' di versione vince la data piu' recente.
+                    // L'ordine delle righe nel JSON quindi non conta.
+                    function parts(v) {
+                        return String(v).replace(/^v/i, '').split('.').map(function (n) { return parseInt(n, 10) || 0; });
+                    }
+                    list.sort(function (a, b) {
+                        var pa = parts(a.version), pb = parts(b.version);
+                        for (var k = 0; k < Math.max(pa.length, pb.length); k++) {
+                            var d = (pb[k] || 0) - (pa[k] || 0);
+                            if (d) return d;
+                        }
+                        return String(b.date || '').localeCompare(String(a.date || ''));
+                    });
+
                     latest = list[0].version;
                     document.getElementById('cl_latest_label').textContent = 'Latest version: v' + latest;
 
