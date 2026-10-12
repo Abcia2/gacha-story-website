@@ -971,7 +971,7 @@ section {
 
 .news_buttons_con .btn {
     flex: 0 0 200px;
-    /* stessa larghezza per tutti e tre */
+    /* stessa larghezza per tutti (griglia 2x2 su desktop) */
     text-align: center;
     padding-left: 0;
     padding-right: 0;
@@ -1132,6 +1132,17 @@ section {
 
 .btn_pink:active {
     box-shadow: 0 2px 0 var(--pink_shadow);
+}
+
+.btn_purple {
+    background: var(--purple_primary);
+    color: var(--purple_text);
+    border: 5px solid var(--purple_border);
+    box-shadow: 0 var(--btm_shadow_size) 0 var(--purple_shadow);
+}
+
+.btn_purple:active {
+    box-shadow: 0 2px 0 var(--purple_shadow);
 }
 
 .btn_notice {

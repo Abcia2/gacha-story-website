@@ -5,6 +5,10 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://gachastory.abcia2.com/changelog.html</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://gachastory.abcia2.com/privacy.html</loc>
         <priority>0.3</priority>
     </url>

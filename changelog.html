@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog · Gacha Story</title>
+    <meta name="description" content="All the updates of Gacha Story: new story chapters, features and bug fixes.">
+    <link rel="stylesheet" href="reset.css?v=2">
+    <link rel="stylesheet" href="vars.css?v=2">
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="decorations.css?v=2">
+    <link rel="stylesheet" href="legal.css">
+    <link rel="stylesheet" href="changelog.css">
+</head>
+
+<body>
+    <section class="legal_header">
+        <div class="legal_header_panel">
+            <a href="index.html" class="legal_logo_link">
+                <img class="legal_logo" src="assets/Logos/Logo.png" alt="Gacha Story">
+            </a>
+            <h1 class="legal_title">Changelog</h1>
+            <p class="legal_updated" id="cl_latest_label">What's new in Gacha Story</p>
+        </div>
+    </section>
+
+    <section class="cl_layout">
+        <nav class="cl_side" aria-label="Versions">
+            <span class="cl_side_title">Versions</span>
+            <div class="cl_side_list" id="cl_side_list"></div>
+        </nav>
+
+        <div class="cl_main">
+            <div class="cl_list" id="cl_list">
+                <p class="cl_status">Loading updates...</p>
+            </div>
+            <a href="index.html" class="btn btn_yellow cl_back">Back to Gacha Story</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span class="footer_main">✦ Gacha Story || abcia2contact@gmail.com ✦</span>
+        <span class="footer_links">
+            <a href="changelog.html" class="footer_link">Changelog</a>
+            <span class="footer_sep">·</span>
+            <a href="privacy.html" class="footer_link">Privacy Policy</a>
+            <span class="footer_sep">·</span>
+            <a href="terms.html" class="footer_link">Terms of Service</a>
+        </span>
+    </footer>
+
+    <div class="cl_toast" id="cl_toast" role="status" aria-live="polite">Link copied!</div>
+
+    <script>
+        /* ============================================
+           CHANGELOG
+           Per aggiungere una versione:
+             1. crea changelog/<versione>.md  (es. changelog/3.1.0.md)
+             2. aggiungi una riga IN CIMA a changelog/versions.json
+           Link diretti: changelog.html#v3.0.1  oppure  changelog.html?v=3.0.1
+                         changelog.html#latest  apre l'ultima versione
+           ============================================ */
+        (function () {
+            var MANIFEST = 'changelog/versions.json';
+            var MD_FOLDER = 'changelog/';
+
+            var TYPE_LABELS = {
+                story: 'Story update',
+                major: 'Big update',
+                patch: 'Patch',
+                hotfix: 'Hotfix'
+            };
+
+            var listEl = document.getElementById('cl_list');
+            var sideEl = document.getElementById('cl_side_list');
+            var toastEl = document.getElementById('cl_toast');
+            var entries = {};   // version -> { el, loaded }
+            var latest = null;
+
+            /* ---------- mini parser markdown (nessuna libreria esterna) ---------- */
+
+            function esc(s) {
+                return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            function inline(s) {
+                s = esc(s);
+                s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+                s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
+                s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (m, text, url) {
+                    var external = /^https?:/i.test(url);
+                    return '<a href="' + url + '"' + (external ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' + text + '</a>';
+                });
+                s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                s = s.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+                s = s.replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
+                s = s.replace(/(^|[\s(])_([^_\s][^_]*)_(?=[\s).,!?:;]|$)/g, '$1<em>$2</em>');
+                return s;
+            }
+
+            function sectionKind(text) {
+                var t = text.toLowerCase();
+                if (/bug|fix/.test(t)) return 'fix';
+                if (/story|chapter|episode|dialogue/.test(t)) return 'story';
+                if (/new|feature|added/.test(t)) return 'new';
+                if (/change|improve|tweak|balanc|update/.test(t)) return 'change';
+                return '';
+            }
+
+            function markdown(src) {
+                var lines = src.replace(/\r\n?/g, '\n').split('\n');
+                var out = [];
+                var para = [];
+                var i = 0;
+
+                function flushPara() {
+                    if (!para.length) return;
+                    var html = para.map(function (l, idx) {
+                        var br = / {2,}$/.test(l) && idx < para.length - 1;
+                        return inline(l.trim()) + (br ? '<br>' : '');
+                    }).join(' ');
+                    out.push('<p>' + html + '</p>');
+                    para = [];
+                }
+
+                while (i < lines.length) {
+                    var line = lines[i];
+                    var m;
+
+                    if (!line.trim()) { flushPara(); i++; continue; }
+
+                    if ((m = line.match(/^\s*(#{1,6})\s+(.*?)\s*#*\s*$/))) {
+                        flushPara();
+                        var tag = m[1].length <= 3 ? 'h3' : 'h4';
+                        var kind = tag === 'h4' ? sectionKind(m[2]) : '';
+                        var text = m[2].replace(/:\s*$/, '');
+                        out.push('<' + tag + (kind ? ' data-kind="' + kind + '"' : '') + '>' + inline(text) + '</' + tag + '>');
+                        i++; continue;
+                    }
+
+                    if (/^\s*([-*_])(\s*\1){2,}\s*$/.test(line)) {
+                        flushPara(); out.push('<hr>'); i++; continue;
+                    }
+
+                    if (/^\s*>/.test(line)) {
+                        flushPara();
+                        var quote = [];
+                        while (i < lines.length && /^\s*>/.test(lines[i])) {
+                            quote.push(lines[i].replace(/^\s*>\s?/, ''));
+                            i++;
+                        }
+                        out.push('<blockquote>' + markdown(quote.join('\n')) + '</blockquote>');
+                        continue;
+                    }
+
+                    var ulRe = /^\s*[-*+]\s+(.*)$/;
+                    var olRe = /^\s*\d+[.)]\s+(.*)$/;
+                    if (ulRe.test(line) || olRe.test(line)) {
+                        flushPara();
+                        var ordered = olRe.test(line) && !ulRe.test(line);
+                        var re = ordered ? olRe : ulRe;
+                        var items = [];
+                        while (i < lines.length) {
+                            var l = lines[i];
+                            var im = l.match(re);
+                            if (im) { items.push(im[1]); i++; continue; }
+                            // riga di continuazione (indentata) dello stesso punto
+                            if (items.length && /^\s{2,}\S/.test(l) && !ulRe.test(l) && !olRe.test(l)) {
+                                items[items.length - 1] += ' ' + l.trim(); i++; continue;
+                            }
+                            break;
+                        }
+                        var t = ordered ? 'ol' : 'ul';
+                        out.push('<' + t + '>' + items.map(function (it) {
+                            return '<li>' + inline(it) + '</li>';
+                        }).join('') + '</' + t + '>');
+                        continue;
+                    }
+
+                    para.push(line);
+                    i++;
+                }
+                flushPara();
+                return out.join('\n');
+            }
+
+            /* ---------- utilità ---------- */
+
+            function formatDate(iso) {
+                var p = (iso || '').split('-');
+                if (p.length !== 3) return iso || '';
+                var d = new Date(+p[0], +p[1] - 1, +p[2]);
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            function idFor(version) { return 'v' + version; }
+
+            function linkFor(version) {
+                return location.origin + location.pathname + '#' + idFor(version);
+            }
+
+            var toastTimer = null;
+            function toast(msg) {
+                toastEl.textContent = msg;
+                toastEl.classList.add('is-show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(function () { toastEl.classList.remove('is-show'); }, 1600);
+            }
+
+            function copyLink(version) {
+                var url = linkFor(version);
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function () { toast('Link copied!'); },
+                        function () { prompt('Copy this link:', url); });
+                } else {
+                    prompt('Copy this link:', url);
+                }
+            }
+
+            /* ---------- caricamento md di una versione (solo quando serve) ---------- */
+
+            function loadBody(version) {
+                var e = entries[version];
+                if (!e || e.loaded) return;
+                e.loaded = true;
+                var body = e.el.querySelector('.cl_body');
+                fetch(MD_FOLDER + encodeURIComponent(e.file), { cache: 'no-cache' })
+                    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+                    .then(function (md) { body.innerHTML = markdown(md); })
+                    .catch(function (err) {
+                        e.loaded = false;
+                        body.innerHTML = '<p>Couldn\'t load these notes right now. Please try again later.</p>';
+                        console.error('Changelog fetch failed:', version, err);
+                    });
+            }
+
+            /* ---------- costruzione della pagina ---------- */
+
+            var ICON_LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>';
+            var ICON_CHEVRON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+
+            function buildEntry(item, isLatest) {
+                var det = document.createElement('details');
+                det.className = 'cl_entry';
+                det.id = idFor(item.version);
+                det.dataset.type = TYPE_LABELS[item.type] ? item.type : 'patch';
+
+                var sum = document.createElement('summary');
+                sum.className = 'cl_head';
+
+                var v = document.createElement('span');
+                v.className = 'cl_version';
+                v.textContent = 'v' + item.version;
+                sum.appendChild(v);
+
+                var pill = document.createElement('span');
+                pill.className = 'cl_pill';
+                pill.textContent = TYPE_LABELS[det.dataset.type];
+                sum.appendChild(pill);
+
+                if (isLatest) {
+                    var nw = document.createElement('span');
+                    nw.className = 'cl_pill cl_pill_new';
+                    nw.textContent = 'Latest';
+                    sum.appendChild(nw);
+                }
+
+                if (item.title) {
+                    var t = document.createElement('span');
+                    t.className = 'cl_title';
+                    t.textContent = item.title;
+                    sum.appendChild(t);
+                }
+
+                var right = document.createElement('span');
+                right.className = 'cl_head_right';
+                if (item.date) {
+                    var d = document.createElement('time');
+                    d.className = 'cl_date';
+                    d.dateTime = item.date;
+                    d.textContent = formatDate(item.date);
+                    right.appendChild(d);
+                }
+                var linkBtn = document.createElement('button');
+                linkBtn.type = 'button';
+                linkBtn.className = 'cl_icon_btn';
+                linkBtn.title = 'Copy link to this version';
+                linkBtn.setAttribute('aria-label', 'Copy link to version ' + item.version);
+                linkBtn.innerHTML = ICON_LINK;
+                linkBtn.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    copyLink(item.version);
+                });
+                right.appendChild(linkBtn);
+
+                var chev = document.createElement('span');
+                chev.className = 'cl_icon_btn cl_chevron';
+                chev.setAttribute('aria-hidden', 'true');
+                chev.innerHTML = ICON_CHEVRON;
+                right.appendChild(chev);
+
+                sum.appendChild(right);
+                det.appendChild(sum);
+
+                var body = document.createElement('div');
+                body.className = 'cl_body';
+                body.innerHTML = '<p>Loading...</p>';
+                det.appendChild(body);
+
+                det.addEventListener('toggle', function () {
+                    if (det.open) loadBody(item.version);
+                });
+
+                entries[item.version] = { el: det, loaded: false, file: item.file || (item.version + '.md') };
+                return det;
+            }
+
+            function buildSideLink(item) {
+                var a = document.createElement('a');
+                a.className = 'cl_side_link';
+                a.href = '#' + idFor(item.version);
+                a.dataset.version = item.version;
+                a.innerHTML = '<span></span><span class="cl_side_date"></span>';
+                a.firstChild.textContent = 'v' + item.version;
+                a.lastChild.textContent = item.date ? formatDate(item.date) : '';
+                return a;
+            }
+
+            function setActive(version) {
+                var links = sideEl.querySelectorAll('.cl_side_link');
+                for (var i = 0; i < links.length; i++) {
+                    var on = links[i].dataset.version === version;
+                    links[i].classList.toggle('is-active', on);
+                    if (on && links[i].scrollIntoView && window.innerWidth <= 820) {
+                        links[i].scrollIntoView({ block: 'nearest', inline: 'center' });
+                    }
+                }
+            }
+
+            /* versione richiesta dall'URL: #v3.0.1, ?v=3.0.1, #latest */
+            function requestedVersion() {
+                var h = decodeURIComponent(location.hash.replace(/^#/, ''));
+                if (h === 'latest') return latest;
+                if (h && entries[h.replace(/^v/, '')]) return h.replace(/^v/, '');
+                var q = new URLSearchParams(location.search).get('v');
+                if (q && entries[q.replace(/^v/, '')]) return q.replace(/^v/, '');
+                if (q === 'latest') return latest;
+                return null;
+            }
+
+            function openVersion(version, scroll) {
+                var e = entries[version];
+                if (!e) return;
+                e.el.open = true;
+                loadBody(version);
+                setActive(version);
+                if (scroll) {
+                    e.el.classList.remove('is-target');
+                    void e.el.offsetWidth;
+                    e.el.classList.add('is-target');
+                    setTimeout(function () { e.el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30);
+                }
+            }
+
+            fetch(MANIFEST, { cache: 'no-cache' })
+                .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+                .then(function (list) {
+                    listEl.innerHTML = '';
+
+                    if (!list.length) {
+                        listEl.innerHTML = '<p class="cl_status">No updates yet.</p>';
+                        return;
+                    }
+
+                    latest = list[0].version;
+                    document.getElementById('cl_latest_label').textContent = 'Latest version: v' + latest;
+
+                    list.forEach(function (item, idx) {
+                        listEl.appendChild(buildEntry(item, idx === 0));
+                        sideEl.appendChild(buildSideLink(item));
+                    });
+
+                    var req = requestedVersion();
+                    if (req && req !== latest) {
+                        openVersion(req, true);
+                    } else {
+                        openVersion(latest, !!req);
+                    }
+                })
+                .catch(function (err) {
+                    listEl.innerHTML = '<p class="cl_status">Couldn\'t load the changelog right now. Please try again later.</p>';
+                    console.error('Changelog manifest failed:', err);
+                });
+
+            window.addEventListener('hashchange', function () {
+                var req = requestedVersion();
+                if (req) openVersion(req, true);
+            });
+        })();
+    </script>
+
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        kofiWidgetOverlay.draw('abcia2', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.background-color': '#ffffff',
+            'floating-chat.donateButton.text-color': '#323842'
+        });
+    </script>
+</body>
+
+</html>
