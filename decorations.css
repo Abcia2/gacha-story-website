@@ -722,3 +722,51 @@
         transform: rotate(9deg);
     }
 }
+
+/* --------------------------------------------
+     TRAILER: stelle in alto a destra, fiori in basso a sinistra
+     -------------------------------------------- */
+
+.trailer_deco {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    height: auto;
+    z-index: 3;
+}
+
+.trailer_star_1 {
+    top: -7%;
+    right: -4%;
+    width: clamp(36px, 10%, 90px);
+    transform: rotate(-10deg);
+}
+
+.trailer_star_2 {
+    top: 10%;
+    right: -5.5%;
+    width: clamp(16px, 4.5%, 40px);
+    transform: rotate(14deg);
+}
+
+.trailer_flower_1 {
+    bottom: -8%;
+    left: -4%;
+    width: clamp(36px, 10%, 90px);
+    transform: rotate(10deg);
+}
+
+.trailer_flower_2 {
+    bottom: 12%;
+    left: -5%;
+    width: clamp(16px, 4.5%, 40px);
+    transform: rotate(-14deg);
+}
+
+@media (max-width: 640px) {
+    .trailer_star_2,
+    .trailer_flower_2 {
+        display: none;
+    }
+}

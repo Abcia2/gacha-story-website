@@ -1362,3 +1362,59 @@ section {
     flex-shrink: 0;
     font-size: 1.2em;
 }
+/* ============================================
+     TRAILER
+     ============================================ */
+
+.trailer {
+    flex-direction: column;
+    gap: clamp(24px, 4vw, 40px);
+}
+
+.trailer_titles_con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: clamp(6px, 1.5vw, 10px);
+}
+
+.trailer_title {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blue_shadow);
+}
+
+.trailer_text {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--blue_shadow);
+}
+
+.trailer_frame {
+    position: relative;
+    width: 100%;
+    max-width: var(--panel-max-width);
+}
+
+.trailer_video_con {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--pink_primary);
+    border: clamp(4px, 0.8vw, var(--border_size_med)) solid var(--pink_border);
+    border-radius: clamp(20px, 3vw, 40px);
+    box-shadow: 0 var(--shadow_size_big) 0 var(--pink_shadow);
+}
+
+.trailer_video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

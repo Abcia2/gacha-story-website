@@ -10,5 +10,11 @@
         "date": "2026-10-12",
         "type": "patch",
         "title": "Remote updates & bug fixes"
+    },
+    {
+        "version": "3.1.0",
+        "date": "2026-11-17",
+        "type": "story",
+        "title": "Week 2 and iOS release"
     }
 ]
